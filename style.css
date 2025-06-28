@@ -142,7 +142,7 @@ body::before{
   width:35px;
   height:35px;
 }
-/*
+
 .forecast-items-container::-webkit-scrollbar{
   height:8px;
 }
@@ -154,7 +154,7 @@ body::before{
   background:rgba(0,0,0,0.15);
   border-radius:99px;
 }
-*/
+
 
 /*END SECTION : weatherinfo*/
 
