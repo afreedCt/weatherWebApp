@@ -32,10 +32,10 @@ console.log("keydown",cityInput.value)
     cityInput.blur()
   }
 })
-
+const apiId="5b4bee0ba241d092159faf007e166080"
 
 async function getFetchData(endPoint,city){
-     const apiUrl=`https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=5b4bee0ba241d092159faf007e166080&units=metric`
+     const apiUrl=`https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${apiId}&units=metric`
      const response=await fetch(apiUrl)
      return response.json()
 }
