@@ -40,13 +40,13 @@ async function getFetchData(endPoint,city){
      return response.json()
 }
 function getWeatherIcon(id){
-  if(id <= 232) return "thunderstorm.svg ";
-    if(id <= 321) return "drizzle.svg "
-    if(id <= 531) return "rain.svg "
-    if(id <= 622) return "snow.svg "
-    if(id <= 781) return "atmosphere.svg "
-    if(id <= 800) return "clear.svg "
-  else return "clouds.svg"
+    if(id <= 232) return "thunderstorm.svg";
+    if(id <= 321) return "drizzle.svg"
+    if(id <= 531) return "rain.svg"
+    if(id <= 622) return "snow.svg"
+    if(id <= 781) return "atmosphere.svg"
+    if(id <= 800) return "clear.svg"
+    else return "clouds.svg"
 }
 async function updateWeatherInfo(city){
   const weatherData=await getFetchData('weather',city);
@@ -71,17 +71,17 @@ const main = weatherData.weather[0].main;
 const speed = weatherData.wind.speed;
   
     console.log(weatherData)
- 
+ showDisplaySection(weatherInfoSection)
   countryTxt.textContent=country;
   tempTxt.textContent=Math.round(temp)+' °C';
   conditionTxt.textContent=main;
   humidityValueTxt.textContent=humidity+'%';
   windValueTxt.textContent=speed+' M/s'
-  weatherSummaryImg.src=`assets/weather/${getWeatherIcon(id)}`
+  weatherSummaryImg.src=`./assets/weather/${getWeatherIcon(id)}`
   currentDateTxt.textContent=getCurrentDate()
   await updateForecastInfo(city)
 
-showDisplaySection(weatherInfoSection)
+//showDisplaySection(weatherInfoSection)
 }
 
 async function updateForecastInfo(city){
@@ -113,7 +113,7 @@ console.log("dateTaken",updatedDate)
   const forecastItem=`
   <div class="forecast-item">
             <h5 class="forecast-item-date regular-txt">${updatedDate}</h5>
-            <img src="assets/weather/${getWeatherIcon(id)}" class="forecast-item-img" />                                                                                   <h5 class="forecast-item-temp">${temp} °C</h5>
+            <img src="./assets/weather/${getWeatherIcon(id)}" class="forecast-item-img" />                                                                                   <h5 class="forecast-item-temp">${temp} °C</h5>
          </div>
   `
   forecastItemsContainer.insertAdjacentHTML('beforeend',forecastItem)
@@ -127,10 +127,10 @@ function showDisplaySection(section) {
     sec.classList.remove("animate-flip-in"); 
     // remove animation if it was added before
   })
-  section.style.display="flex"
   void section.offsetWidth;
 
   section.classList.add("animate-flip-in");
+  section.style.display="flex"
 }
 
 function getCurrentDate(){
